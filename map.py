@@ -8,7 +8,7 @@ import pandas as pd                         # CSVをデータフレームとし�
 
 
 #  表示するデータを読み込み
-df = pd.read_csv("../data_processing/export_files/221218-2025_hotpepper_beer.csv")
+df = pd.read_csv("221218-2025_hotpepper_beer.csv")
 
 # >>> Streamlit サイドバー >>>
 # セレクトボックス
