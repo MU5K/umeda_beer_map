@@ -197,7 +197,7 @@ guinness_mean_price = int(guinness_data["price"].mean())
 
 
 
-st.header("梅田駅の近くでビールを飲もう！")
+st.header("梅田駅の近くでビールを飲もう！:beers:")
 st.text("""
         左に表示されているプルダウンから好きな銘柄を選んでください。
         選んだ銘柄を提供しているお店が地図上に表示されます。
