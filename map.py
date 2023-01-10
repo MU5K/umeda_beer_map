@@ -14,7 +14,6 @@ df = pd.read_csv("221218-2025_hotpepper_beer.csv")
 # セレクトボックス
 bland_options = st.sidebar.selectbox(
     "ご希望のビール銘柄をお選びください。",
-    # ["モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス" ,"全銘柄", "プレミアム"])
     ["全銘柄", "モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス"])
 st.sidebar.write("現在の選択:", bland_options)
 
@@ -30,7 +29,6 @@ st.sidebar.write("希望価格：100円～", price_slider, "円です。")
 # <<< Streamlit サイドバー <<<
 
 # 銘柄でのデータを抽出
-# all_data = (df[df["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス|プレミアム")]) #全銘柄
 _all_data = df.sort_values(by=["name","price"])
 _all_data = _all_data.drop_duplicates(subset=["name"], keep="first")
 all_data = (_all_data[_all_data["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス")]) #全銘柄
@@ -41,7 +39,6 @@ kirin_data = df[df["menu"].str.contains("キリン")]
 hoeg_data = df[df["menu"].str.contains("ヒューガルデン")]
 corona_data = df[df["menu"].str.contains("コロナ")]
 guinness_data = df[df["menu"].str.contains("ギネス")]
-# premium_data = df[df["menu"].str.contains("プレミアム")]
 
 # 銘柄の価格のデータを抽出
 all_prices = all_data[all_data["price"] <= price_slider]
@@ -52,7 +49,6 @@ kirin_prices = kirin_data[kirin_data["price"] <= price_slider]
 hoeg_prices = hoeg_data[hoeg_data["price"] <= price_slider]
 corona_prices = corona_data[corona_data["price"] <= price_slider]
 guinness_prices = guinness_data[guinness_data["price"] <= price_slider]
-# premium_prices = premium_data[premium_data["price"] <= price_slider]
 
 # >>> 全店舗（all_map) >>>
 # 全銘柄（all_map)：地図の中心の緯度/経度、タイル、初期のズームサイズを指定
@@ -162,19 +158,6 @@ for i, row in guinness_prices.iterrows():
     ).add_to(guinness_group)
 # <<< ギネスマップ（guinness_map) <<<
 
-# # >>> プレミアムマップ（premium_map) >>>
-# premium_map = folium.Map(location=[34.7055051, 135.4983028], tiles="OpenStreetMap", zoom_start=15)
-# premium_group = FeatureGroup(name="プレミアム")
-
-# for i, row in premium_prices.iterrows():
-#     folium.Marker(
-#         location=[row["lat"], row["lng"]],
-#         popup=row["name"] + "<br>【ジャンル】" + row["genre"] + "</br>" + row["url"],
-#         icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="darkred")
-#     ).add_to(premium_group)
-# # <<< プレミアムマップ（premium_map) <<<
-
-
 
 # 各銘柄を地図に追加
 all_group.add_to(all_map)
@@ -185,8 +168,6 @@ kirin_group.add_to(kirin_map)
 hoeg_group.add_to(hoeg_map)
 corona_group.add_to(corona_map)
 guinness_group.add_to(guinness_map)
-# premium_group.add_to(premium_map)
-
 
 
 #追記 最安値
@@ -214,8 +195,6 @@ corona_mean_price = int(corona_data["price"].mean())
 guinness_min_price = guinness_data["price"].min()
 guinness_mean_price = int(guinness_data["price"].mean())
 
-# premium_min_price = premium_data["price"].min()
-# premium_mean_price = int(premium_data["price"].mean())
 
 
 st.header("梅田駅の近くでビールを飲もう！")
@@ -271,9 +250,3 @@ if bland_options == "ギネス":
     st_folium(guinness_map, width=700, height=700)
     st.sidebar.write("大阪市北区のギネスビール1杯の最安値は、", guinness_min_price, "円です")
     st.sidebar.write("大阪市北区のギネスビール1杯の平均価格は、", guinness_mean_price, "円です")
-
-# if bland_options == "プレミアム":
-#     st.subheader(":beer: プレミアム` が飲めるお店")
-#     st_folium(premium_map, width=700, height=700)
-#     st.sidebar.write("大阪市北区のプレミアム1杯の最安値は、", premium_min_price, "円です")
-#     st.sidebar.write("大阪市北区のプレミアム1杯の平均価格は、", premium_mean_price, "円です")
