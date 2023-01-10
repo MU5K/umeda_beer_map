@@ -33,16 +33,6 @@ hoeg_min_price = hoeg_data["price"].min()
 corona_min_price = corona_data["price"].min()
 guinness_min_price = guinness_data["price"].min()
 
-# 最高値
-all_max_price = df["price"].max()
-mlts_max_price = mlts_data["price"].max()
-asahi_max_price = df["price"].max()
-ebis_max_price = ebis_data["price"].max()
-kirin_max_price = kirin_data["price"].max()
-hoeg_max_price = hoeg_data["price"].max()
-corona_max_price = corona_data["price"].max()
-guinness_max_price = guinness_data["price"].max()
-
 # 平均価格
 all_mean_price = int(df["price"].mean())
 mlts_mean_price = int(mlts_data["price"].mean())
@@ -69,78 +59,14 @@ bland_options = st.sidebar.selectbox(
 st.sidebar.write("現在の選択:", bland_options)
 
 # スライダー
-# price_slider = st.sidebar.slider(
-#     "1杯の値段で絞り込みができます",
-#     min_value = 100,
-#     max_value = 1000,
-#     value = 500,
-#     step = 10,
-#     )
-# st.sidebar.write("希望価格：100円～", price_slider, "円です。")
-
-if bland_options == "全銘柄":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = all_min_price,
-        max_value = all_max_price
-        )
-    st.sidebar.write("希望価格：", price_slider, "円です。")
-
-if bland_options == "モルツ":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = mlts_min_price,
-        max_value = mlts_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "アサヒ":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = asahi_min_price,
-        max_value = asahi_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "ヱビス":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = ebis_min_price,
-        max_value = ebis_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "キリン":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = kirin_min_price,
-        max_value = kirin_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "ヒューガルデン":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = hoeg_min_price,
-        max_value = hoeg_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "コロナ":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = corona_min_price,
-        max_value = corona_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
-
-if bland_options == "ギネス":
-    price_slider = st.sidebar.slider(
-        "1杯の値段で絞り込みができます",
-        min_value = guinness_min_price,
-        max_value = guinness_max_price
-        )
-    st.sidebar.write("希望価格:", price_slider, "円です。")
+price_slider = st.sidebar.slider(
+    "1杯の値段で絞り込みができます",
+    min_value = 100,
+    max_value = 1000,
+    value = 500,
+    step = 10,
+    )
+st.sidebar.write("希望価格：100円～", price_slider, "円です。")
 
 # 銘柄の価格のデータを抽出
 all_prices = all_data[all_data["price"] <= price_slider]
