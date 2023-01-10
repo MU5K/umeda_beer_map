@@ -15,7 +15,7 @@ df = pd.read_csv("221218-2025_hotpepper_beer.csv")
 bland_options = st.sidebar.selectbox(
     "ご希望のビール銘柄をお選びください。",
     # ["モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス" ,"全銘柄", "プレミアム"])
-    ["モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス" ,"全銘柄"])
+    ["全銘柄", "モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス"])
 st.sidebar.write("現在の選択:", bland_options)
 
 # スライダー
@@ -31,7 +31,9 @@ st.sidebar.write("希望価格：100円～", price_slider, "円です。")
 
 # 銘柄でのデータを抽出
 # all_data = (df[df["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス|プレミアム")]) #全銘柄
-all_data = (df[df["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス")]) #全銘柄
+_all_data = df.sort_values(by=["name","price"])
+_all_data = _all_data.drop_duplicates(subset=["name"], keep="first")
+all_data = (_all_data[_all_data["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス")]) #全銘柄
 mlts_data = df[df["menu"].str.contains("モルツ")]
 asahi_data = df[df["menu"].str.contains("アサヒ")]
 ebis_data = df[df["menu"].str.contains("ヱビス")]
