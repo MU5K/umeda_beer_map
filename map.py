@@ -52,6 +52,12 @@ st.text("""
 # <<< Streamlit タイトル <<<
 
 # >>> Streamlit サイドバー >>>
+# セレクトボックス
+bland_options = st.sidebar.selectbox(
+    "ご希望のビール銘柄をお選びください。",
+    ["全銘柄", "モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス"])
+st.sidebar.write("現在の選択:", bland_options)
+
 # スライダー
 price_slider = st.sidebar.slider(
     "1杯の値段で絞り込みができます",
@@ -71,12 +77,6 @@ kirin_prices = kirin_data[kirin_data["price"] <= price_slider]
 hoeg_prices = hoeg_data[hoeg_data["price"] <= price_slider]
 corona_prices = corona_data[corona_data["price"] <= price_slider]
 guinness_prices = guinness_data[guinness_data["price"] <= price_slider]
-
-# セレクトボックス
-bland_options = st.sidebar.selectbox(
-    "ご希望のビール銘柄をお選びください。",
-    ["全銘柄", "モルツ", "アサヒ", "ヱビス", "キリン", "ヒューガルデン", "コロナ", "ギネス"])
-st.sidebar.write("現在の選択:", bland_options)
 # <<< Streamlit サイドバー <<<
 
 # >>> 全店舗（all_map) >>>
