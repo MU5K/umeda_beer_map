@@ -29,8 +29,7 @@ st.sidebar.write("希望価格：100円～", price_slider, "円です。")
 # <<< Streamlit サイドバー <<<
 
 # 銘柄でのデータを抽出
-_all_data = df.sort_values(by=["name","price"])
-_all_data = _all_data.drop_duplicates(subset=["name"], keep="first")
+_all_data = df.loc[df.groupby("name")["price"].idxmin()]
 all_data = (_all_data[_all_data["menu"].str.contains("モルツ|アサヒ|ヱビス|キリン|ヒューガルデン|コロナ|ギネス")]) #全銘柄
 mlts_data = df[df["menu"].str.contains("モルツ")]
 asahi_data = df[df["menu"].str.contains("アサヒ")]
