@@ -326,3 +326,10 @@ if bland_options == "ギネス":
     st.sidebar.write("大阪市北区のギネスビール1杯の最安値は、", guinness_min_price, "円です")
     st.sidebar.write("大阪市北区のギネスビール1杯の平均価格は、", guinness_mean_price, "円です")
 # <<< Streamlit サイドバー & Map <<<
+
+# >>> Streamlit フッター >>>
+st.text("""
+        ホットペッパーグルメのサイトから情報を抽出して表示しています。
+        価格は、変動する可能性があります。ご利用の際は自己責任となることをご理解の上でお使いください。
+        """)
+# <<< Streamlit フッター <<<
