@@ -104,7 +104,9 @@ for i, row in all_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="darkblue"))
     all_markers.append(marker)
 
@@ -124,7 +126,9 @@ for i, row in mlts_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="blue"))
     mlts_markers.append(marker)
 
@@ -144,7 +148,9 @@ for i, row in asahi_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="gray"))
     asahi_markers.append(marker)
 
@@ -164,7 +170,9 @@ for i, row in ebis_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="orange"))
     ebis_markers.append(marker)
 
@@ -184,7 +192,9 @@ for i, row in kirin_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="lightred"))
     kirin_markers.append(marker)
 
@@ -204,7 +214,9 @@ for i, row in hoeg_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="gray", color="white"))
     hoeg_markers.append(marker)
 
@@ -224,7 +236,9 @@ for i, row in corona_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="beige"))
     corona_markers.append(marker)
 
@@ -244,7 +258,9 @@ for i, row in guinness_prices.iterrows():
     genre = row["genre"]
     name = row["name"]
     url = row["url"]
-    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br><a href='{url}' target='_blank'>{url}</a></div>"
+    menu = row["menu"]
+    price = row["price"]
+    popup = f"<div style='width:300px'>【{genre}】<br><b>{name}</b><br>{menu}: <b>{price}円</b><br><a href='{url}' target='_blank'>&#x1f37a; ホットペッパーグルメで確認 &#x1f37a;</a></div>"
     marker = folium.Marker([lat, lng], tooltip=name, popup=popup, icon=folium.Icon(icon="beer", prefix="fa", icon_color="white", color="black"))
     guinness_markers.append(marker)
 
@@ -311,3 +327,10 @@ if bland_options == "ギネス":
     st.sidebar.write("大阪市北区のギネスビール1杯の最安値は、", guinness_min_price, "円です")
     st.sidebar.write("大阪市北区のギネスビール1杯の平均価格は、", guinness_mean_price, "円です")
 # <<< Streamlit サイドバー & Map <<<
+
+# >>> Streamlit フッター >>>
+st.text("""
+        ホットペッパーグルメのサイトから情報を抽出して表示しています。
+        価格は、変動する可能性があります。ご利用の際は自己責任となることをご理解の上でお使いください。
+        """)
+# <<< Streamlit フッター <<<
