@@ -1,6 +1,7 @@
 # ターミナルでfoliumのインポート
 # 参考ULR：https://welovepython.net/streamlit-folium/
 import streamlit as st                      # streamlit
+
 from streamlit_folium import st_folium      # streamlitでfoliumを使う
 import folium                               # folium
 from folium import FeatureGroup             # FeatureGrop
